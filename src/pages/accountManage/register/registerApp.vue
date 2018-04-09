@@ -54,7 +54,7 @@ export default {
         password:this.password
       }).then(data => {
         if(!data.error) return; //错误处理
-
+		
         // 下面是成功处理
       })
     },

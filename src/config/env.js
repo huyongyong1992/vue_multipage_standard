@@ -7,11 +7,12 @@
 let apiUrl;
 let routerMode;
 if (process.env.NODE_ENV === 'production') { //生产环境配置
-    apiUrl = 'https://api.pdabc.com';
-
+    //apiUrl = 'https://api.pdabc.com';
+			apiUrl = 'http://api.saintleon.net/';
     routerMode = 'hash'
 } else { //开发环境、测试环境地址
-    apiUrl = 'http://10.0.1.207:8087';
+    //apiUrl = 'http://10.0.1.207:8087';
+    apiUrl = 'http://192.168.0.219:8080';
 
     routerMode = 'hash';
 }
