@@ -11,8 +11,8 @@ module.exports = {
     env: {
       NODE_ENV: '"production"'
     },
-    index: path.resolve(__dirname, '../dist/pages/sign/list.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../prod/pages/sign/list.html'),
+    assetsRoot: path.resolve(__dirname, '../prod'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
@@ -20,7 +20,7 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: true,
     productionGzipExtensions: ['js', 'css'],
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
@@ -32,17 +32,12 @@ module.exports = {
     env: {
       NODE_ENV: '"development"'
     },
-    port: 8081,
+    port: 8091,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
+    assetsRoot: '/',
     assetsPublicPath: '/',
-    proxyTable: {
-      // '/':{
-      //   target:'http://10.0.1.207:8087',
-      //   changeOrigin: true,
-       
-      // }
-    },
+    proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -54,16 +49,16 @@ module.exports = {
     env: {
       NODE_ENV: '"test"'
     },
-    index: path.resolve(__dirname, '../dist/pages/sign/list.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../test/pages/sign/list.html'),
+    assetsRoot: path.resolve(__dirname, '../test'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/test/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: true,
     productionGzipExtensions: ['js', 'css'],
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:

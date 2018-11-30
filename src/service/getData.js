@@ -1,9 +1,10 @@
 import { getInfo } from '../config/axios';
-import { apiUrl } from '../config/env';
 
-export const wechatShareAPI = (params) => getInfo(apiUrl + '/pdabc-common/wx/getShareParam', params, 'post');
+import { apiUrl } from '../config/env'
 
-export const register = (params) => getInfo(apiUrl + '/api/user/register.htm', params, 'post');
-
-export const getYanzhengCode = (params) => getInfo(apiUrl + '/api/checkcode.htm?type=signup', params, 'post');
-
+/**
+ * 微信分享api
+ * @param { string } product(daidaikan,weilidai)
+ * @param { string } url(分享的url) 
+ */
+export const wechatShareAPI = (params) => getInfo(apiUrl + '/management/wx/query/wxConfig', params, 'post')

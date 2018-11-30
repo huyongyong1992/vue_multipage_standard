@@ -21,7 +21,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     })
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.test.assetsRoot,
     filename: utils.assetsPath('js/[name].js'),
     chunkFilename: utils.assetsPath('js/[id].js')
   },
@@ -39,8 +39,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].css')
     }),
- 
-   
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       chunks: chunks,
@@ -51,7 +49,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
-if (config.build.productionGzip) {
+if (config.test.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
@@ -60,7 +58,7 @@ if (config.build.productionGzip) {
       algorithm: 'gzip',
       test: new RegExp(
         '\\.(' +
-        config.build.productionGzipExtensions.join('|') +
+        config.test.productionGzipExtensions.join('|') +
         ')$'
       ),
       threshold: 10240,
@@ -69,7 +67,7 @@ if (config.build.productionGzip) {
   )
 }
 
-if (config.build.bundleAnalyzerReport) {
+if (config.test.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
