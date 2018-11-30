@@ -1,6 +1,6 @@
 
 import Vue from 'vue';
-import App from './listApp';
+import App from './wifeApp';
 import '../../../config/rem';
 
 new Vue({

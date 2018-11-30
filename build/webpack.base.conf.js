@@ -17,16 +17,20 @@ var vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+let outPath = process.env.NODE_ENV === 'production' 
+                    ? config.build.assetsRoot
+                    : ( process.env.NODE_ENV === 'test' ? config.test.assetsRoot : config.dev.assetsRoot)
+let publicPaths = process.env.NODE_ENV === 'production' 
+                    ? config.build.assetsPublicPath
+                    : ( process.env.NODE_ENV === 'test' ? config.test.assetsPublicPath : config.dev.assetsPublicPath)
 
 var webpackConfig = {
 
   entry:entries,
   output: {
-    path: config.build.assetsRoot,
+    path: outPath,
     filename: '[name].js',
-    publicPath: (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: publicPaths
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

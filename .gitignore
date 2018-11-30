@@ -1,2 +1,8 @@
 node_modules/
+www/
+dist/
+test/
+mp/
 .vscode/
+auto.sh
+.git/
