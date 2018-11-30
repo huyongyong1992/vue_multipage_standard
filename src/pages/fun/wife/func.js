@@ -1,13 +1,13 @@
 import { Hair_data, Attribute_data, Character_data, CupSize_data, Skin_data } from './constant'
 export function generateObj(height) {
     return {
-        height: generateHeight(height),
-        weight: generateWeight(),
-        hair: generateHair(),
-        attr: generateAttr(),
-        role: generateCharacter(),
-        cup: generateCup(),
-        skin: generateSkin()
+        '身高': generateHeight(height),
+        '体重': generateWeight(),
+        '发型': generateHair(),
+        '属性': generateAttr(),
+        '性格': generateCharacter(),
+        'CUP': generateCup(),
+        '肤色': generateSkin()
     }
 }
 // 生成身高
