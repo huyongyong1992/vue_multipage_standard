@@ -1,7 +1,8 @@
 <template>
 <div >
   <div class="sign">
-    <li @click="onGenerate">生成</li>
+    <!-- <x-input placeholder="请输入你的身高" v-model="height"></x-input> -->
+    <x-button @click.native="onGenerate" type="warn" text="一键生成" style="margin:20px 0"></x-button>
     <group >
       <cell :title="key" :value="value" v-for="(value, key) in obj" :key="key"></cell>
     </group>
@@ -12,15 +13,16 @@
 <script>
 import { generateObj } from './func'
 import Lib from '../../../assets/js/Lib'
-import {Group, Cell} from 'vux'
+import { Group, Cell, XButton, XInput } from 'vux'
 export default {
   data() {
     return {
-      obj: {}
+      obj: {},
+      height: ''
     };
   },
   components: {
-    Group, Cell
+    Group, Cell, XButton, XInput
   },
   created() {},
   methods: {
