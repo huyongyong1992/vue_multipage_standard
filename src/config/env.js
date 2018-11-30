@@ -7,33 +7,22 @@
  * thisProjectUrl: 本项目所处域名环境
  * routerMode: 路由模式
  */
-let wldApi,
-    redirectUrl,
-    routerMode,
-    thisProjectUrl,
-    wldUrl,
-    ddkApi;
-if (process.env.NODE_ENV === 'production') {    //生产环境配置
-    wldApi = 'https://wld-wechat.vcash.cn/o2o/platform/api'; 
-    wldUrl = 'https://wld-wechat.vcash.cn';
-    ddkApi = 'https://ddk-api.vcredit.com/o2o/platform/api'; 
-    redirectUrl = 'https://ddk-wechat.vcash.cn';
-    thisProjectUrl = 'https://web.vcredit.com';
+
+
+let apiUrl;
+let routerMode;
+if (process.env.NODE_ENV === 'production') { //生产环境配置
+    //apiUrl = 'https://api.pdabc.com';
+    apiUrl = 'http://api.saintleon.net/';
     routerMode = 'hash'
 } else { //开发环境、测试环境地址
-    wldApi = 'http://wld-dev.vcredit.com/o2o/platform/api'; 
-    wldUrl = 'http://wld-dev.vcredit.com';
-    ddkApi = 'http://ddk-dev.vcredit.com/o2o/platform/api';
-    redirectUrl = 'http://ddk-dev.vcredit.com'; 
-    thisProjectUrl = 'http://o2o-dev.vcredit.com'; 
+    //apiUrl = 'http://10.0.1.207:8087';
+    apiUrl = 'http://192.168.0.219:8080';
+
     routerMode = 'hash';
 }
 
 export {
-    wldApi,
-    redirectUrl,
-    routerMode,
-    ddkApi,
-    thisProjectUrl,
-    wldUrl
+    apiUrl,
+    routerMode
 }
