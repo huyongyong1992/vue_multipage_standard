@@ -1,8 +1,8 @@
 
-import store from 'store';
+// import store from 'store';
 
 var Rxports = {
-	appname:"云收银",
+	appname:"vue",
 	url_host:window.location.host,
 	background:'#FBF9FE', 
 }

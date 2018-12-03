@@ -56,13 +56,5 @@ export default {
 </script>
 
 <style lang="less">
-body {
-  padding: 0 10px;
-}
-li {
-  padding: 5px 10px !important;
-  font-size: 20px;
-  line-height: 20px;
-  list-style: none;
-}
+
 </style>

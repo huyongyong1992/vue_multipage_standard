@@ -17,6 +17,7 @@
     "fastclick": "^1.0.6",
     "js-md5": "^0.6.0",
     "vue": "^2.2.2",
+    "vue-8-puzzle": "^0.1.0",
     "vux": "^2.2.0"
   },
   "devDependencies": {
