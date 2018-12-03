@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     onChange() {
-      const index = parseInt(Math.random()*8)
+      const index = parseInt(Math.random()*27)
       console.log(index)
       this.img = require(`./images/animal${index}.jpg`)
       this.showNumber = false
@@ -76,6 +76,8 @@ export default {
         },
         onConfirm (msg) {
           console.log(`input value:${msg}`)
+          this.cols = this.rows = 3
+          this.onChange()
         }
       })
     }
