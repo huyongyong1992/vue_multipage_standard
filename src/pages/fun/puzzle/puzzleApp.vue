@@ -56,6 +56,7 @@ export default {
       console.log(index)
       this.img = require(`./images/animal${index}.jpg`)
       this.showNumber = false
+      this.count = 0
     },
     onWarn() {
       this.showNumber = true
