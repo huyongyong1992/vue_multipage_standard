@@ -68,9 +68,15 @@ export default {
       this.count += 1
     },
     onSuccess() {
-      this.$vux.toast({
-        text: '恭喜您成功了！',
-        type: 'success'
+      const that = this
+      this.$vux.confirm.prompt('请输入您的姓名',{
+        title: '恭喜您成功了！',
+        onShow() {
+          that.$vux.confirm.setInputValue('')
+        },
+        onConfirm (msg) {
+          console.log(`input value:${msg}`)
+        }
       })
     }
   }
