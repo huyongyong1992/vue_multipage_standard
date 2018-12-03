@@ -50,6 +50,9 @@ export default {
       }
     }
   },
+  created() {
+    this.onChange()
+  },
   methods: {
     onChange() {
       const index = parseInt(Math.random()*27)
@@ -76,8 +79,7 @@ export default {
         },
         onConfirm (msg) {
           console.log(`input value:${msg}`)
-          this.cols = this.rows = 3
-          this.onChange()
+          window.location.reload()              // 解决 答完无法初始化的bug
         }
       })
     }
