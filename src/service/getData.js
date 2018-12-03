@@ -4,7 +4,7 @@ import { apiUrl } from '../config/env'
 
 /**
  * 微信分享api
- * @param { string } product(daidaikan,weilidai)
+ * @param { string } product()
  * @param { string } url(分享的url) 
  */
 export const wechatShareAPI = (params) => getInfo(apiUrl + '/management/wx/query/wxConfig', params, 'post')
