@@ -41,6 +41,8 @@ export default {
       window.localStorage.setItem('count', this.count)
       if(this.count % 5 === 1) {
         this.obj = generateObj()
+      } else {
+        this.$vux.toast.text('你已经生成过了哟!');
       }
     },
     onClick(e) {
