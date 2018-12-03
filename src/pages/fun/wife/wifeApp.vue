@@ -3,7 +3,7 @@
   <div class="sign">
     <!-- <x-input placeholder="请输入你的身高" v-model="height"></x-input> -->
     <x-button @click.native="onGenerate" type="warn" text="一键生成" style="margin:20px 0"></x-button>
-    <group v-if="count % 5 === 1">
+    <group v-if="count > 0">
       <cell title="身高" :value="obj.height"></cell>
       <cell title="体重" :value="obj.weight"></cell>
       <cell title="发型" :value="obj.hair" is-link @click.native="onClick(obj.hair)"></cell>
