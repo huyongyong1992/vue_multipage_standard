@@ -3,7 +3,7 @@
   <div class="sign">
     <!-- <x-input placeholder="请输入你的身高" v-model="height"></x-input> -->
     <x-button @click.native="onGenerate" type="warn" text="一键生成" style="margin:20px 0"></x-button>
-    <group v-if="count > 0">
+    <group v-if="obj.height">
       <cell title="身高" :value="obj.height"></cell>
       <cell title="体重" :value="obj.weight"></cell>
       <cell title="发型" :value="obj.hair" is-link @click.native="onClick(obj.hair)"></cell>
@@ -34,6 +34,7 @@ export default {
   },
   created() {
     this.count = Number(window.localStorage.getItem('count')) || 0
+    this.obj = window.localStorage.getItem('wifeObj') ? JSON.parse(window.localStorage.getItem('wifeObj')) : {}
   },
   methods: {
     onGenerate() {
@@ -41,6 +42,7 @@ export default {
       window.localStorage.setItem('count', this.count)
       if(this.count % 5 === 1) {
         this.obj = generateObj()
+        window.localStorage.setItem('wifeObj', JSON.stringify(this.obj))
       } else {
         this.$vux.toast.text('你已经生成过了哟!');
       }
