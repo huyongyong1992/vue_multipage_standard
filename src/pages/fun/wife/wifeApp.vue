@@ -4,7 +4,14 @@
     <!-- <x-input placeholder="请输入你的身高" v-model="height"></x-input> -->
     <x-button @click.native="onGenerate" type="warn" text="一键生成" style="margin:20px 0"></x-button>
     <group >
-      <cell :title="key" :value="value" v-for="(value, key) in obj" :key="key"></cell>
+      <cell title="身高" :value="obj.height" ></cell>
+      <cell title="体重" :value="obj.weight"></cell>
+      <cell title="发型" :value="obj.hair"></cell>
+      <cell title="属性" :value="obj.attr"></cell>
+      <cell title="性格" :value="obj.character"></cell>
+      <cell title="CUP" :value="obj.CUP"></cell>
+      <cell title="肤色" :value="obj.skin"></cell>
+      <cell title="脸型" :value="obj.face"></cell>
     </group>
   </div>
 </div>
@@ -24,11 +31,18 @@ export default {
   components: {
     Group, Cell, XButton, XInput
   },
-  created() {},
+  created() {
+    this.count = Number(window.localStorage.getItem('count')) || 0
+  },
   methods: {
     onGenerate () {
-      this.obj = generateObj()
-      console.log(this.obj)
+      this.count += 1
+      window.localStorage.setItem('count', this.count)
+      if(this.count % 5 === 1) {
+        this.obj = generateObj()
+      }
+      
+      
     }
   }
 };
