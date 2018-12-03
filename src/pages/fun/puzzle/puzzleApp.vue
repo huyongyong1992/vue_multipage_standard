@@ -6,6 +6,8 @@
       :autoResize="true"
       :cols="cols"
       :rows="rows"
+      @change="onPuzzleChange"
+      @finish="onSuccess"
       :showNumber="showNumber"
       :src="img" />
 
@@ -13,6 +15,7 @@
       <x-button type="warn" mini plain @click.native="onWarn">查看提示</x-button>
       <x-button :type="active === 'easy' ? 'primary' : ''" mini @click.native="onTypeChange('easy')">简单模式</x-button>
       <x-button :type="active === 'diff'? 'primary' : ''" mini @click.native="onTypeChange('diff')">困难模式</x-button>
+      <span>步数 {{count}}</span>
       <img :src="img"/>
       <x-button  type="primary" @click.native="onChange">换一张</x-button>
     </div>
@@ -31,7 +34,8 @@ export default {
       rows: 3,
       img: require('./images/animal1.jpg'),
       showNumber: false,
-      active: 'easy'
+      active: 'easy',
+      count: 0
     };
   },
   components: {
@@ -58,6 +62,15 @@ export default {
     },
     onTypeChange(e) {
       this.active = e
+    },
+    onPuzzleChange() {
+      this.count += 1
+    },
+    onSuccess() {
+      this.$vux.toast({
+        text: '恭喜您成功了！',
+        type: 'success'
+      })
     }
   }
 };
