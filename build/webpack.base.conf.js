@@ -64,6 +64,13 @@ var webpackConfig = {
         }
       },
       {
+        test: /\.(mp3)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          name: utils.assetsPath('assets/[name].[hash:7].[ext]')
+        }
+      },
+      {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         query: {
