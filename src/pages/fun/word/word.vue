@@ -68,6 +68,7 @@
 
 <script>
 // github: https://github.com/Okazari/Rythm.js
+// demo: https://okazari.github.io/Rythm.js/
 import Rythm from 'rythm.js'
 export default {
     data() {
