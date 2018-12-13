@@ -1,6 +1,6 @@
 <template>
 <div class="sign">
-  <grid :rows="3">
+  <grid :cols="3">
     <grid-item :label="item.name" @click.native="onClick(item.url)" v-for="(item, index) in gameList" :key="index">
     </grid-item>
     
@@ -34,7 +34,10 @@ export default {
           name: '奔月游戏',
           url: 'https://www.jqhtml.com/yanshi?demourl=wp-content%2Fuploads%2F2017%2F02%2Ftx%2Ftx20170230%2F&demotitle=HTML5%E5%A5%94%E6%9C%88%E6%B8%B8%E6%88%8F'
         },
-        
+        {
+          name: '打方块',
+          url: '../game/rect.html'
+        },
       ]
     };
   },
