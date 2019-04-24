@@ -6,7 +6,7 @@ var glob = require('glob');
 
 exports.assetsPath = function (_path) {
   var assetsSubDirectory;
-  if(process.env.NODE_ENV === 'production') {
+  if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'uat') {
     assetsSubDirectory = config.build.assetsSubDirectory
   }else if(process.env.NODE_ENV === 'test') {
     assetsSubDirectory = config.test.assetsSubDirectory
@@ -23,7 +23,7 @@ exports.cssLoaders = function (options) {
   var cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test'),
+      minimize: (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'uat'),
       sourceMap: options.sourceMap
     }
   }

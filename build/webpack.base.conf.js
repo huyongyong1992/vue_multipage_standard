@@ -17,20 +17,16 @@ var vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-let outPath = process.env.NODE_ENV === 'production' 
-                    ? config.build.assetsRoot
-                    : ( process.env.NODE_ENV === 'test' ? config.test.assetsRoot : config.dev.assetsRoot)
-let publicPaths = process.env.NODE_ENV === 'production' 
-                    ? config.build.assetsPublicPath
-                    : ( process.env.NODE_ENV === 'test' ? config.test.assetsPublicPath : config.dev.assetsPublicPath)
 
 var webpackConfig = {
 
   entry:entries,
   output: {
-    path: outPath,
+    path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: publicPaths
+    publicPath: (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'uat')
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -65,9 +61,10 @@ var webpackConfig = {
       },
       {
         test: /\.(mp3)(\?.*)?$/,
-        loader: 'file-loader',
-        options: {
-          name: utils.assetsPath('assets/[name].[hash:7].[ext]')
+        loader: 'url-loader',
+        query: {
+          name: utils.assetsPath('audio/[name].[hash:7].[ext]'),
+          limit: 6000
         }
       },
       {
