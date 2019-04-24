@@ -8,12 +8,6 @@ module.exports = {
           "ios >= 7",
           "android >= 4.0"
       ]
-    },
-    "postcss-pxtorem": {
-        "rootValue": 37.5,
-        "unitPrecision": 4,
-        "minPixelValue": 2,
-        "propList": ["*"]
     }
   }
 }
